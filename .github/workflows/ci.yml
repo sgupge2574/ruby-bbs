@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   scan_ruby:
@@ -88,3 +88,11 @@ jobs:
           name: screenshots
           path: ${{ github.workspace }}/tmp/screenshots
           if-no-files-found: ignore
+teps:
+  - uses: actions/checkout@v3
+  - name: Set up Ruby
+    uses: ruby/setup-ruby@v1
+  - name: Set execute permission
+    run: chmod +x bin/rails
+  - name: Run tests
+    run: bundle exec rails db:test:prepare test test:system
