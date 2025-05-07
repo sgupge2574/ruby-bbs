@@ -1,10 +1,141 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+/* ...existing code... */
+
+/* 全体のスタイリング */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  /* ヘッダー */
+  h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+  
+  /* 投稿リスト */
+  ul {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  li {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* 投稿のタイトルと内容 */
+  h2 {
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+  }
+  
+  p {
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  /* ボタンのスタイル */
+  .link-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .link-button:hover {
+    background-color: #2980b9;
+  }
+  
+  .delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-button:hover {
+    background-color: #c0392b;
+  }
+  
+  /* 新規投稿ボタンコンテナ */
+  .button-container {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* 編集・削除ボタンのラッパー */
+  .edit-delete-wrapper {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  /* 投稿フォーム */
+  .form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .form-input {
+    margin-bottom: 20px;
+  }
+  
+  .form-input label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2c3e50;
+    font-weight: bold;
+  }
+  
+  .form-input input[type="text"],
+  .form-input textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .form-input textarea {
+    min-height: 150px;
+  }
+  
+  /* 日時表示 */
+  small {
+    color: #95a5a6;
+    font-size: 0.85em;
+  }
+  
+  /* レスポンシブデザイン */
+  @media (max-width: 600px) {
+    body {
+      padding: 10px;
+    }
+    
+    .form-container {
+      padding: 15px;
+    }
+  }
