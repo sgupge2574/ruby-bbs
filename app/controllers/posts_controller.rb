@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
     def index
        @posts = Post.all
     end
@@ -8,22 +7,37 @@ class PostsController < ApplicationController
         @post = Post.new
     end
 
-    # createアクションは、newアクションで作成したフォームから送信されたデータを受け取るnewとcreateは基本セット
     def create
-        # paramsは打ち込んだ情報を持っている
         @post = Post.new(post_params)
-        if @post.save # saveメソッドはDBに保存するメソッド.もしもDBに保存できなかった場合はfalseを返す
-            # redirect_toはURLを指定してリダイレクトするメソッド
+        if @post.save
             redirect_to posts_path
         else
             render :new
         end
     end
 
+    def edit
+        @post = Post.find(params[:id])
+    end
+
+    def update
+        @post = Post.find(params[:id])
+        if @post.update(post_params)
+            redirect_to posts_path
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @post = Post.find(params[:id])
+        @post.destroy
+        redirect_to posts_path
+    end
+
     private
-    # post_paramsはparamsの中にあるpostの中にあるtitleとcontentを取得する
+
     def post_params
-        # postはparamsの中にあるpostの中にあるtitleとcontentを取得する
         params.require(:post).permit(:title, :content)
     end
 end
